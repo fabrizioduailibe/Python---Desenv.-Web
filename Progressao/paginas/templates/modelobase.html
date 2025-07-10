@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% block titulo %}
+    <title>Modelo Base</title>
+    {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap413.min.css' %}">
+</head>
+<body>
+    
+    {% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/Logo_Lencois_2014_fundo_branco.png' %}" height="80" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <spam class="navbar-toggler-icon"></spam>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">
+                            Index
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cadastros
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'inicio'%}">Início</a>
+                            <a class="dropdown-item" href="{% url 'base' %}">Modelo Base</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'sobre' %}">Sobre</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'inicio' %}">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>     
+    </nav>
+    {% endblock %}
+
+    {% block destaque %}
+    <div class="bg-secondary">
+        Figuras de destaque
+    </div>
+    {% endblock %}
+
+    <div class="container">
+        <!-- Deixando este block dentro da Div já formatado como "container", aumenta 
+         a proteção contra alteração de formato. -->
+        {% block conteudo %}
+        <h3>Template Modelo - Cadastros</h3>
+
+        <p>Conteúdo do site</p>
+        {% endblock %}
+
+    </div>
+
+    {% block rodape %}
+    <div class="bg-light">
+        Rodapé
+    </div>
+    {% endblock %}
+
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+
+</body>
+</html>
